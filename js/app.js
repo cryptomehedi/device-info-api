@@ -128,7 +128,7 @@ const emptyValue = () => {
     warningMessage.textContent=''
     phoneContainer.textContent=''
 }
-
+// *spinner add and close function
 const spinnerLoad = (param) =>{
     
     spinnerShow.innerHTML = `

@@ -1,15 +1,14 @@
+// *select all id and class 
 const searchField = document.querySelector('.phone-name-input');
 const searchButton = document.querySelector('#search-button');
 const phoneDetails = document.querySelector('#phone-details');
 const phoneContainer = document.querySelector('.phone-container');
 const warningMessage = document.querySelector('.warning-message');
 
+// *search validation & api data collect
 const searchPhone = () =>{
     if(!isNaN(searchField.value)){
-        warningMessage.textContent=''
-            phoneContainer.textContent=''
-            searchField.value=''
-            phoneDetails.textContent=''
+            emptyValue()
             const div = document.createElement('div');
                 div.classList.add ('flex');
                 div.classList.add ('justify-center');
@@ -24,20 +23,15 @@ const searchPhone = () =>{
                 warningMessage.appendChild(div)
     }else{
         const url = `https://openapi.programming-hero.com/api/phones?search=${searchField.value}`
-        searchField.value=''
-        phoneDetails.textContent=''
+        emptyValue();
         fetch(url)
         .then(res => res.json())
         .then(data => displaySearchResult(data))
     }
-    
 }
-
+// *API search validation 
 const displaySearchResult = phonesData =>{
-    // console.log(phonesData);
     if(phonesData.status == false ){
-            warningMessage.textContent=''
-            phoneContainer.textContent=''
             const div = document.createElement('div');
                 div.classList.add ('flex');
                 div.classList.add ('justify-center');
@@ -47,15 +41,11 @@ const displaySearchResult = phonesData =>{
                 p.classList.add('font-bold');
                 p.classList.add('text-4xl');
                 p.classList.add('text-red-500');
-                p.innerText = `Search Result Not Found
-                `;
+                p.innerText = `Search Result Not Found`;
                 div.appendChild(p)
                 warningMessage.appendChild(div)
-    
     }else{
         const phones = phonesData.data
-        phoneContainer.textContent= ''
-        warningMessage.textContent=''
         phones.slice(0,20).forEach (phone =>{
             const div = document.createElement('div');
             div.classList.add ('bg-orange-200');
@@ -76,22 +66,18 @@ const displaySearchResult = phonesData =>{
             `;
             div.appendChild(p)
             phoneContainer.appendChild(div)
-
             
         })
     }
-    
 }
-
+// *API id collection & data process
 const showPhoneDetails = phoneSlug =>{
     const url =`https://openapi.programming-hero.com/api/phone/${phoneSlug}`
     fetch(url)
     .then(res => res.json())
     .then(data => displayDetails(data.data))
-    // .then(data => console.log(data.data))
 }
-
-
+// *Display Details Selected Phone 
 const displayDetails= data =>{
     phoneDetails.textContent=''
     const div = document.createElement('div');
@@ -130,4 +116,12 @@ const displayDetails= data =>{
     `;
     div.appendChild(p)
     phoneDetails.appendChild(div)
+}
+
+// *Empty value function  
+const emptyValue = () => {
+    searchField.value=''
+    phoneDetails.textContent=''
+    warningMessage.textContent=''
+    phoneContainer.textContent=''
 }

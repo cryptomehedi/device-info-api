@@ -8,12 +8,12 @@
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
-    <h2 class="text-center text-lime-600 text-4xl mb-2" style="margin-top: 30px;" >Search Your Device </h2>
-    <div class="text-center ">
+    <h2 id="phone-details-show" class="text-center text-lime-600 text-4xl mb-2" style="margin-top: 30px;" >Search Your Device </h2>
+    <div class="text-center">
         <input type="text" class="phone-name-input border-2 rounded hover:border-sky-500 px-2" placeholder="Search your Device" aria-label="Search your Device" aria-describedby="button-addon2">
         <button onclick="searchPhone()" class="bg-gray-300 hover:bg-gray-700 hover:text-white font-semibold px-2 rounded" id="search-button" type="button">Search</button>
     </div>
-    <div class="phone-details mt-4"></div>
+    <div id="phone-details" class="mt-4"></div>
     <hr class="my-8">
     <div class="warning-message"></div>
     <div class="phone-container grid sm:grid-cols-1  md:grid-cols-2 lg:grid-cols-3 ">

@@ -54,6 +54,9 @@ const displaySearchResult = phonesData =>{
             div.classList.add ('bg-orange-200');
             div.classList.add ('m-8');
             div.classList.add ('p-4');
+            div.classList.add ('rounded');
+            div.classList.add ('shadow-2xl');
+            div.classList.add ('shadow-slate-800');
             const p = document.createElement('p');
             p.innerHTML = `
             <div class="bg-slate-200 rounded p-4">
@@ -63,7 +66,7 @@ const displaySearchResult = phonesData =>{
                     </div><br>
                     Phone Name: ${phone.phone_name} <br>
                     Brand : ${phone.brand}<br>
-                    <a href="#phone-details-show" onclick="showPhoneDetails('${phone.slug}')" class="bg-rose-300 hover:bg-rose-600 rounded px-2 hover:text-white font-semibold mt-2">Phone Details</a>
+                    <button onclick="showPhoneDetails('${phone.slug}')" class="bg-rose-300 hover:bg-rose-600 px-2 h-8 mt-4 rounded px-2 hover:text-white font-semibold">Phone Details</button>
                 </div>
             </div>
             `;
@@ -91,28 +94,30 @@ const displayDetails= data =>{
     p.classList.add('grid')
     p.classList.add('md:grid-cols-1')
     p.classList.add('lg:grid-cols-2')
+    window.scrollTo(0,0)
     p.innerHTML=`
     
         <div class="lg:w-100 sm:w-2/3 px-8 flex sm:justify-center lg:justify-end">
             <img class="" src="${data.image}">
         </div>
-        <div class=" bg-orange-200 p-4 rounded">
+        <div class=" bg-orange-200 sm:mt-4 shadow-2xl shadow-slate-500 p-4 rounded">
             <div class="bg-white rounded p-4">
                 Name: ${data.name}<br>
                 Brand: ${data.brand}<br>
-                Release Date: ${data.releaseDate ? data.releaseDate : 'No Data Found'}<br>
-                Chip Set: ${data.mainFeatures.chipSet ? data.mainFeatures.chipSet: 'No Data Found'}<br>
-                Display Size: ${data.mainFeatures.displaySize ? data.mainFeatures.displaySize : 'No Data Found'}<br>
+                Release Date: ${data.releaseDate ? data.releaseDate : 'No Release Date Found'}<br>
+                Chip Set: ${data.mainFeatures.chipSet ? data.mainFeatures.chipSet: 'No Chip Set Data Found'}<br>
+                Display Size: ${data.mainFeatures.displaySize ? data.mainFeatures.displaySize : 'No Display Size Data Found'}<br>
                 Memory: ${data.mainFeatures.memory ? data.mainFeatures.memory : 'No Data Found'}<br>
                 Storage: ${data.mainFeatures.storage ? data.mainFeatures.storage : 'No Data Found'}<br>
                 Sensor: ${data.mainFeatures.sensors ? data.mainFeatures.sensors : 'No Data Found'}<br>
-                <span class="text-xl">Other</span><br>
-                Bluetooth: ${data.others?.Bluetooth ? data.others?.Bluetooth : 'No Data Found'}<br>
-                GPS: ${data.others?.GPS ? data.others?.GPS: 'No Data Found'}<br>
-                NFC: ${data.others?.NFC ? data.others?.NFC : 'No Data Found'}<br>
-                Radio: ${data.others?.Radio ? data.others?.Radio: 'No Data Found'}<br>
-                USB: ${data.others?.USB ? data.others?.USB : 'No Data Found'}<br>
-                Radio: ${data.others?.WLAN ? data.others?.WLAN : 'No Data Found'}
+                <hr><span class="text-xl">Other</span><br>
+                <span class="ml-8">Bluetooth: ${data.others?.Bluetooth ? data.others?.Bluetooth : 'No Bluetooth Data Found'}</span><br>
+                <span class="ml-8">GPS: ${data.others?.GPS ? data.others?.GPS: 'No GPS Data Found'}</span><br>
+                <span class="ml-8">NFC: ${data.others?.NFC ? data.others?.NFC : 'No NFC Data Found'}</span><br>
+                <span class="ml-8">Radio: ${data.others?.Radio ? data.others?.Radio: 'No Radio Data Found'}</span><br>
+                <span class="ml-8">USB: ${data.others?.USB ? data.others?.USB : 'No USB Data Found'}</span><br>
+                <span class="ml-8">WLAN: ${data.others?.WLAN ? data.others?.WLAN : 'No WLAN Data Found'}</span>
+                
                 
             </div>
         </div>

@@ -55,8 +55,11 @@ const displaySearchResult = phonesData =>{
             div.classList.add ('m-8');
             div.classList.add ('p-4');
             div.classList.add ('rounded');
-            div.classList.add ('shadow-2xl');
+            div.classList.add ('shadow-xl');
+            div.classList.add ('hover:shadow-2xl');
             div.classList.add ('shadow-slate-800');
+            div.classList.add ('hover:shadow-neutral-800');
+            div.classList.add ('hover:opacity-90');
             const p = document.createElement('p');
             p.innerHTML = `
             <div class="bg-slate-200 rounded p-4">
@@ -64,8 +67,8 @@ const displaySearchResult = phonesData =>{
                     <div class="flex">
                     <img class=" px-2" src="${phone.image}">
                     </div><br>
-                    Phone Name: ${phone.phone_name} <br>
-                    Brand : ${phone.brand}<br>
+                    <span class="font-semibold text-blue-700">Phone Name:</span> ${phone.phone_name} <br>
+                    <span class="font-semibold text-blue-700">Brand :</span> ${phone.brand}<br>
                     <button onclick="showPhoneDetails('${phone.slug}')" class="bg-rose-300 hover:bg-rose-600 px-2 h-8 mt-4 rounded px-2 hover:text-white font-semibold">Phone Details</button>
                 </div>
             </div>
@@ -102,21 +105,21 @@ const displayDetails= data =>{
         </div>
         <div class=" bg-orange-200 sm:mt-4 shadow-2xl shadow-slate-500 p-4 rounded">
             <div class="bg-white rounded p-4">
-                Name: ${data.name}<br>
-                Brand: ${data.brand}<br>
-                Release Date: ${data.releaseDate ? data.releaseDate : 'No Release Date Found'}<br>
-                Chip Set: ${data.mainFeatures.chipSet ? data.mainFeatures.chipSet: 'No Chip Set Data Found'}<br>
-                Display Size: ${data.mainFeatures.displaySize ? data.mainFeatures.displaySize : 'No Display Size Data Found'}<br>
-                Memory: ${data.mainFeatures.memory ? data.mainFeatures.memory : 'No Data Found'}<br>
-                Storage: ${data.mainFeatures.storage ? data.mainFeatures.storage : 'No Data Found'}<br>
-                Sensor: ${data.mainFeatures.sensors ? data.mainFeatures.sensors : 'No Data Found'}<br>
-                <hr><span class="text-xl">Other</span><br>
-                <span class="ml-8">Bluetooth: ${data.others?.Bluetooth ? data.others?.Bluetooth : 'No Bluetooth Data Found'}</span><br>
-                <span class="ml-8">GPS: ${data.others?.GPS ? data.others?.GPS: 'No GPS Data Found'}</span><br>
-                <span class="ml-8">NFC: ${data.others?.NFC ? data.others?.NFC : 'No NFC Data Found'}</span><br>
-                <span class="ml-8">Radio: ${data.others?.Radio ? data.others?.Radio: 'No Radio Data Found'}</span><br>
-                <span class="ml-8">USB: ${data.others?.USB ? data.others?.USB : 'No USB Data Found'}</span><br>
-                <span class="ml-8">WLAN: ${data.others?.WLAN ? data.others?.WLAN : 'No WLAN Data Found'}</span>
+                <span class="font-semibold text-sky-900">Name:</span> ${data.name}<br>
+                <span class="font-semibold text-sky-900">Brand:</span> ${data.brand}<br>
+                <span class="font-semibold text-sky-900">Release Date:</span> ${data.releaseDate ? data.releaseDate : 'No Release Date Found'}<br>
+                <span class="font-semibold text-sky-900">Chip Set:</span> ${data.mainFeatures.chipSet ? data.mainFeatures.chipSet: 'No Chip Set Data Found'}<br>
+                <span class="font-semibold text-sky-900">Display Size:</span> ${data.mainFeatures.displaySize ? data.mainFeatures.displaySize : 'No Display Size Data Found'}<br>
+                <span class="font-semibold text-sky-900">Memory:</span> ${data.mainFeatures.memory ? data.mainFeatures.memory : 'No Data Found'}<br>
+                <span class="font-semibold text-sky-900">Storage:</span> ${data.mainFeatures.storage ? data.mainFeatures.storage : 'No Data Found'}<br>
+                <span class="font-semibold text-sky-900">Sensor:</span> ${data.mainFeatures.sensors ? data.mainFeatures.sensors : 'No Data Found'}<br>
+                <hr><span class="text-xl text-amber-600">Other</span><br>
+                <span class="ml-8"><span class="font-semibold text-sky-900">Bluetooth:</span> ${data.others?.Bluetooth ? data.others?.Bluetooth : 'No Bluetooth Data Found'}</span><br>
+                <span class="ml-8"><span class="font-semibold text-sky-900">GPS:</span> ${data.others?.GPS ? data.others?.GPS: 'No GPS Data Found'}</span><br>
+                <span class="ml-8"><span class="font-semibold text-sky-900">NFC:</span> ${data.others?.NFC ? data.others?.NFC : 'No NFC Data Found'}</span><br>
+                <span class="ml-8"><span class="font-semibold text-sky-900">Radio:</span> ${data.others?.Radio ? data.others?.Radio: 'No Radio Data Found'}</span><br>
+                <span class="ml-8"><span class="font-semibold text-sky-900">USB:</span> ${data.others?.USB ? data.others?.USB : 'No USB Data Found'}</span><br>
+                <span class="ml-8"><span class="font-semibold text-sky-900">WLAN:</span> ${data.others?.WLAN ? data.others?.WLAN : 'No WLAN Data Found'}</span>
                 
                 
             </div>
